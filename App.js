@@ -15,6 +15,8 @@ app.use('/assets', express.static('assets'));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
+const port = process.env.PORT || 6000;
+
 // Home page
 app.get('/', function(req, res) {
     res.render('Home');
@@ -41,5 +43,5 @@ app.post('/contact', function(req, res, next) {
     res.render('Home');
     })
   
-  app.listen(process.env.PORT);
+  app.listen(port);
   console.log(`Server is listening on port ${process.env.PORT}`);
